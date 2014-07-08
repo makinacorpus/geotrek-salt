@@ -6,7 +6,7 @@
 {{cfg.name}}-global-up:
   cmd.run:
     - name: bin/develop up -f
-    - cwd: {{data.project_root}}/geotrek
+    - cwd: {{cfg.project_root}}/geotrek
     - user: {{cfg.user}}
     - use_vt: true
     - output_loglevel: info
@@ -16,7 +16,7 @@
 {{cfg.name}}-geotrek-global-up:
   cmd.run:
     - name: make update
-    - cwd: {{data.project_root}}/geotrek
+    - cwd: {{cfg.project_root}}/geotrek
     - user: {{cfg.user}}
     - use_vt: true
     - output_loglevel: info

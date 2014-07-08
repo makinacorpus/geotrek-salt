@@ -16,13 +16,6 @@ include:
       - {{cfg.group}}
     - remove_groups: false
 
-{% if data.changeset%}
-pindown-{{cfg.name}}:
-  cmd.run:
-    - name: git reset --hard {{data.changeset}}
-    - user: {{cfg.user}}
-{% endif %}
-
 prepreqs-{{cfg.name}}:
   pkg.installed:
     - watch:
@@ -109,9 +102,10 @@ prepreqs-{{cfg.name}}:
 {{cfg.name}}-geotrek-co:
   git.latest:
     - name: https://github.com/makinacorpus/Geotrek.git
-    - target: {{data.project_root}}/geotrek
+    - target: {{cfg.project_root}}/geotrek
+    - user: {{cfg.user}}
     {% if data.changeset %}
-    - rev: {{data.changeset ù}
+    - rev: {{data.changeset }}
     {% endif %}
 
 {% for i in ['etc', 'var', 'lib'] %}

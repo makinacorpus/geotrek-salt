@@ -8,7 +8,7 @@
 {{cfg.name}}-djangosettings:
   file.managed:
     - template: jinja
-    - name: {{cfg.project_root}}/geotrek/settings/custom.py
+    - name: {{cfg.project_root}}/geotrek/geotrek/settings/custom.py
     - source: salt://makina-projects/{{cfg.name}}/files/config.py
     - user: {{cfg.user}}
     - group: {{cfg.group}}
@@ -22,7 +22,7 @@
 {{cfg.name}}-settings:
   file.managed:
     - template: jinja
-    - name: {{cfg.project_root}}/etc/settings.ini
+    - name: {{cfg.project_root}}/geotrek/etc/settings.ini
     - source: salt://makina-projects/{{cfg.name}}/files/settings.cfg
     - user: {{cfg.user}}
     - group: {{cfg.group}}
@@ -48,7 +48,7 @@
 # as settings are read first
 {{cfg.name}}-buildout:
   file.managed:
-    - name: {{cfg.project_root}}/salt.cfg
+    - name: {{cfg.project_root}}/geotrek/salt.cfg
     - source: salt://makina-projects/{{cfg.name}}/files/salt.cfg
     - template: jinja
     - user: {{cfg.user}}
@@ -72,7 +72,7 @@
       - file: {{cfg.name}}-settings
   buildout.installed:
     - config: salt.cfg
-    - name: {{cfg.project_root}}
+    - name: {{cfg.project_root}}/geotrek
     - user: {{cfg.user}}
     - use_vt: true
     - output_loglevel: info
